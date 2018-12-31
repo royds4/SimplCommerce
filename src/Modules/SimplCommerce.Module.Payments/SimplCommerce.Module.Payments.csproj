@@ -6,4 +6,8 @@
     <ProjectReference Include="..\SimplCommerce.Module.Orders\SimplCommerce.Module.Orders.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Update="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
+  </ItemGroup>
+
 </Project>

@@ -9,4 +9,8 @@
     <ProjectReference Include="..\SimplCommerce.Module.ShoppingCart\SimplCommerce.Module.ShoppingCart.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Update="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
+  </ItemGroup>
+
 </Project>
