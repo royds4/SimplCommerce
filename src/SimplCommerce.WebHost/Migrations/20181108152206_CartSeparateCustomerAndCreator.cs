@@ -24,7 +24,7 @@ namespace SimplCommerce.WebHost.Migrations
                 name: "CreatedById",
                 table: "ShoppingCart_Cart",
                 nullable: false,
-                defaultValue: 0L);
+                defaultValue: 10);
 
             migrationBuilder.CreateIndex(
                 name: "IX_ShoppingCart_Cart_CreatedById",
