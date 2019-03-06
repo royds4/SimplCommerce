@@ -21,6 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Themes\Moldova\theme.json" />
+    <None Remove="Themes\Moldova\Views\Shared\_Layout.cshtml" />
+    <None Remove="Themes\Moldova\Views\Shared\_LoginPartial.cshtml" />
+    <None Remove="Themes\Moldova\Views\_ViewImports.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Modules\SimplCommerce.Module.ActivityLog\SimplCommerce.Module.ActivityLog.csproj" />
     <ProjectReference Include="..\Modules\SimplCommerce.Module.Catalog\SimplCommerce.Module.Catalog.csproj" />
     <ProjectReference Include="..\Modules\SimplCommerce.Module.Cms\SimplCommerce.Module.Cms.csproj" />
@@ -65,9 +72,14 @@
     <PackageReference Include="MediatR" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.1" />
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.5.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.2" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Themes\Moldova\Areas\" />
+    <Folder Include="wwwroot\themes\MoldovaStore\" />
   </ItemGroup>
 
   <Target Name="CopyModule" AfterTargets="Build">

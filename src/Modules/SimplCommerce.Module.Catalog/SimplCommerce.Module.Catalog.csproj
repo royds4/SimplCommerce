@@ -1,17 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
   
-  <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-  </PropertyGroup>
-  
   <ItemGroup>
     <ProjectReference Include="..\..\SimplCommerce.Infrastructure\SimplCommerce.Infrastructure.csproj" />
     <ProjectReference Include="..\SimplCommerce.Module.Core\SimplCommerce.Module.Core.csproj" />
     <ProjectReference Include="..\SimplCommerce.Module.Tax\SimplCommerce.Module.Tax.csproj" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <PackageReference Update="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
   </ItemGroup>
 
 </Project>
