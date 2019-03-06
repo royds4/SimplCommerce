@@ -47,7 +47,11 @@ namespace SimplCommerce.Module.PaymentStripe.Areas.PaymentStripe.Controllers
             var stripeSetting = JsonConvert.DeserializeObject<StripeConfigForm>(stripeProvider.AdditionalSettings);
             var stripeChargeService = new ChargeService(stripeSetting.PrivateKey);
             var currentUser = await _workContext.GetCurrentUser();
-            var cart = await _cartService.GetActiveCart(currentUser.Id).FirstOrDefaultAsync();
+            var cart = await _cartService.GetActiveCart(currentUser.Id);
+            if(cart == null)
+            {
+                return NotFound();
+            }
 
             var orderCreationResult = await _orderService.CreateOrder(cart.Id, "Stripe", 0, OrderStatus.PendingPayment);
             if(!orderCreationResult.Success)
@@ -86,7 +90,7 @@ namespace SimplCommerce.Module.PaymentStripe.Areas.PaymentStripe.Controllers
                 order.OrderStatus = OrderStatus.PaymentReceived;
                 _paymentRepository.Add(payment);
                 await _paymentRepository.SaveChangesAsync();
-                return Redirect("~/checkout/congratulation");
+                return Redirect("~/checkout/success");
             }
             catch(StripeException ex)
             {
@@ -97,7 +101,7 @@ namespace SimplCommerce.Module.PaymentStripe.Areas.PaymentStripe.Controllers
                 _paymentRepository.Add(payment);
                 await _paymentRepository.SaveChangesAsync();
                 TempData["Error"] = ex.StripeError.Message;
-                return Redirect("~/checkout/payment");
+                return Redirect("~/checkout/error");
             }
         }
     }
