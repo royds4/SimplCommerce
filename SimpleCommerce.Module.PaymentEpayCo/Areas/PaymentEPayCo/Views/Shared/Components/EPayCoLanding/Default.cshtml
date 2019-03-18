@@ -1,0 +1,16 @@
+﻿@model SimplCommerce.Module.PaymentEPayCo.Areas.PaymentEPayCo.ViewModels.EPayCoCheckoutForm
+
+<label>EPayCo</label>
+<form asp-area="PaymentEPayCo" asp-controller="EPayCo" asp-action="Charge" method="POST">
+    <script src="//checkout.epayco.co/checkout.js"
+            class="epayco-button"
+            data-epayco-key="@Model.Key"
+            data-epayco-locale="auto"
+            data-epayco-currency="@Model.Currency"
+            data-epayco-name="@Model.Name"
+            data-epayco-description="Payment with EPayCo"
+            data-epayco-test="@Model.Test"
+            data-epayco-external="false"
+            data-epayco-amount="@Model.Amount">
+    </script>
+</form>
