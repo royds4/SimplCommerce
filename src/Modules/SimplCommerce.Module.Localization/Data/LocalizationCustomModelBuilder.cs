@@ -10,7 +10,7 @@ namespace SimplCommerce.Module.Localization.Data
         public void Build(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Culture>().HasData(
-               new Culture(GlobalConfiguration.DefaultCulture) { Name = "English (US)" }
+               new Culture(GlobalConfiguration.DefaultCulture) { Name = "Español (CO)" }
             );
             modelBuilder.Entity<Culture>().ToTable("Localization_Culture");
             modelBuilder.Entity<Resource>().ToTable("Localization_Resource");

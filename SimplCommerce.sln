@@ -129,7 +129,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplCommerce.Module.Signal
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplCommerce.Module.PaymentMomo", "src\Modules\SimplCommerce.Module.PaymentMomo\SimplCommerce.Module.PaymentMomo.csproj", "{18D536F1-AE38-47FA-95ED-1656882907FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplCommerce.Module.PaymentEPayCo", "SimpleCommerce.Module.PaymentEpayCo\SimplCommerce.Module.PaymentEPayCo.csproj", "{7EF89046-41FE-4301-9267-05A9195AC754}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplCommerce.Module.PaymentEPayCo", "src\Modules\SimplCommerce.Module.PaymentEPayCo\SimplCommerce.Module.PaymentEPayCo.csproj", "{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -705,18 +705,18 @@ Global
 		{18D536F1-AE38-47FA-95ED-1656882907FC}.Release|x64.Build.0 = Release|Any CPU
 		{18D536F1-AE38-47FA-95ED-1656882907FC}.Release|x86.ActiveCfg = Release|Any CPU
 		{18D536F1-AE38-47FA-95ED-1656882907FC}.Release|x86.Build.0 = Release|Any CPU
-		{7EF89046-41FE-4301-9267-05A9195AC754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7EF89046-41FE-4301-9267-05A9195AC754}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7EF89046-41FE-4301-9267-05A9195AC754}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{7EF89046-41FE-4301-9267-05A9195AC754}.Debug|x64.Build.0 = Debug|Any CPU
-		{7EF89046-41FE-4301-9267-05A9195AC754}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7EF89046-41FE-4301-9267-05A9195AC754}.Debug|x86.Build.0 = Debug|Any CPU
-		{7EF89046-41FE-4301-9267-05A9195AC754}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7EF89046-41FE-4301-9267-05A9195AC754}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7EF89046-41FE-4301-9267-05A9195AC754}.Release|x64.ActiveCfg = Release|Any CPU
-		{7EF89046-41FE-4301-9267-05A9195AC754}.Release|x64.Build.0 = Release|Any CPU
-		{7EF89046-41FE-4301-9267-05A9195AC754}.Release|x86.ActiveCfg = Release|Any CPU
-		{7EF89046-41FE-4301-9267-05A9195AC754}.Release|x86.Build.0 = Release|Any CPU
+		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Debug|x64.Build.0 = Debug|Any CPU
+		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Debug|x86.Build.0 = Debug|Any CPU
+		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Release|x64.ActiveCfg = Release|Any CPU
+		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Release|x64.Build.0 = Release|Any CPU
+		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Release|x86.ActiveCfg = Release|Any CPU
+		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -771,7 +771,7 @@ Global
 		{19AF369C-71BB-44B3-9D02-8EF3A3E912E5} = {D9FD9ABA-AE5E-4427-AA6B-6285BE2E212D}
 		{6A59FF75-297F-4119-8E15-6B82C12188D9} = {7EFA2FA7-32DD-4047-B021-50E77A83D714}
 		{18D536F1-AE38-47FA-95ED-1656882907FC} = {7EFA2FA7-32DD-4047-B021-50E77A83D714}
-		{7EF89046-41FE-4301-9267-05A9195AC754} = {7EFA2FA7-32DD-4047-B021-50E77A83D714}
+		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD} = {7EFA2FA7-32DD-4047-B021-50E77A83D714}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B9D0D8F0-1AB9-44DD-839F-ED8CEE7DDB10}

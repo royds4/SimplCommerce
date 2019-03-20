@@ -22,7 +22,7 @@ namespace SimplCommerce.Module.Localization.Events
 
         public async Task Handle(UserSignedIn user, CancellationToken cancellationToken)
         {
-            var guestUser = await _workContext.GetCurrentUser();
+             var guestUser = await _workContext.GetCurrentUser();
             var signedInUser = await _userRepository.Query().SingleAsync(u => u.Id == user.UserId);
             signedInUser.Culture = guestUser.Culture;
             await _userRepository.SaveChangesAsync();

@@ -10,7 +10,7 @@ namespace SimplCommerce.Infrastructure
 
         public static IList<Culture> Cultures { get; set; } = new List<Culture>();
 
-        public static string DefaultCulture => "es-ES";
+        public static string DefaultCulture => "es-CO";
 
         public static string WebRootPath { get; set; }
 
