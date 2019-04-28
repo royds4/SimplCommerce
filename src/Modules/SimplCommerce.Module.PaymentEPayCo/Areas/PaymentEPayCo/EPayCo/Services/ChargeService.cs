@@ -24,5 +24,6 @@ namespace SimplCommerce.Module.PaymentEPayCo.Areas.PaymentEPayCo.EPayCo.Services
             Url = $@"/restpagos/transaction/response.json?ref_payco={id}&&public_key={EPayCo.PublicKey}";
             return await base.Get(id);
         }
+
     }
 }

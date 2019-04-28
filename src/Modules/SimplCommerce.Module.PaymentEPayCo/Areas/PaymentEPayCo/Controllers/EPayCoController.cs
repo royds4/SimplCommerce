@@ -43,11 +43,12 @@ namespace SimplCommerce.Module.PaymentEPayCo.Areas.PaymentEPayCo.Controllers
             _paymentRepository = paymentRepository;
         }
 
-        public async Task<IActionResult> Charge(string epaycoEmail, string epaycoToken)
+        public async Task<IActionResult> Charge(string ref_payco)
         {
             var epaycoProvider = await _paymentProviderRepository.Query().FirstOrDefaultAsync(x => x.Id == PaymentProviderHelper.EPayCoProviderId);
             var epaycoSetting = JsonConvert.DeserializeObject<EPayCoConfigForm>(epaycoProvider.AdditionalSettings);
-            var epaycoChargeService = new ChargeService(epaycoSetting);
+            //var epaycoChargeService = new ChargeService(epaycoSetting);
+            var epaycoValidationService = new ConfirmationService(epaycoSetting);
             var currentUser = await _workContext.GetCurrentUser();
             var cart = await _cartService.GetActiveCart(currentUser.Id);
             if (cart == null)
@@ -64,9 +65,13 @@ namespace SimplCommerce.Module.PaymentEPayCo.Areas.PaymentEPayCo.Controllers
 
             var order = orderCreationResult.Value;
             var zeroDecimalOrderAmount = order.OrderTotal;
+            var zeroDecimalTax = order.TaxAmount;
+            var zeroDecimalSubTotal = order.SubTotalWithDiscount;
             if (!CurrencyHelper.IsZeroDecimalCurrencies())
             {
                 zeroDecimalOrderAmount = zeroDecimalOrderAmount * 100;
+                zeroDecimalTax = zeroDecimalTax * 100;
+                zeroDecimalSubTotal = zeroDecimalSubTotal * 100;
             }
 
             var regionInfo = new RegionInfo(CultureInfo.CurrentCulture.LCID);
@@ -79,20 +84,36 @@ namespace SimplCommerce.Module.PaymentEPayCo.Areas.PaymentEPayCo.Controllers
             };
             try
             {
-                var charge = await epaycoChargeService.Create(new ChargeDTO
+                //var charge = await epaycoChargeService.Create(new ChargeDTO
+                //{
+                //    Customer_Id = currentUser.Id,
+                //    Name = currentUser.FullName,
+                //    Value = (decimal)zeroDecimalOrderAmount,
+                //    Description = cart.OrderNote,
+                //    Currency = regionInfo.ISOCurrencySymbol,
+                //    Token_Card = ref_payco
+                //});
+                var validation = await epaycoValidationService.Get(ref_payco);
+                if (validation.Success)
                 {
-                    Value = (int)zeroDecimalOrderAmount,
-                    Description = cart.OrderNote,
-                    Currency = regionInfo.ISOCurrencySymbol,
-                    Token_Card = epaycoToken
-                });
+                    payment.GatewayTransactionId = validation.Data.TransactionId;
+                    payment.Status = PaymentStatus.Succeeded;
+                    order.OrderStatus = OrderStatus.PaymentReceived;
+                    _paymentRepository.Add(payment);
+                    await _paymentRepository.SaveChangesAsync();
+                    return Redirect($"~/checkout/success?orderId={order.Id}");
+                }
+                else
+                {
+                    payment.Status = PaymentStatus.Failed;
+                    payment.FailureMessage = validation.Message;
+                    order.OrderStatus = OrderStatus.PaymentFailed;
 
-                payment.GatewayTransactionId = charge.Id;
-                payment.Status = PaymentStatus.Succeeded;
-                order.OrderStatus = OrderStatus.PaymentReceived;
-                _paymentRepository.Add(payment);
-                await _paymentRepository.SaveChangesAsync();
-                return Redirect($"~/checkout/success?orderId={order.Id}");
+                    _paymentRepository.Add(payment);
+                    await _paymentRepository.SaveChangesAsync();
+                    TempData["Error"] = validation.Message;
+                    return Redirect($"~/checkout/error?orderId={order.Id}");
+                }
             }
             catch (EPayCoException ex)
             {

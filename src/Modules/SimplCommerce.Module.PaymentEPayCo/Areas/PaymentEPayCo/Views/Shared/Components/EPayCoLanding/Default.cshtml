@@ -5,12 +5,16 @@
     <script src="//checkout.epayco.co/checkout.js"
             class="epayco-button"
             data-epayco-key="@Model.Key"
-            data-epayco-locale="auto"
+            data-epayco-country="@Model.Country"
             data-epayco-currency="@Model.Currency"
             data-epayco-name="@Model.Name"
-            data-epayco-description="Payment with EPayCo"
+            data-epayco-description="@Model.Description"
             data-epayco-test="@Model.Test"
             data-epayco-external="false"
-            data-epayco-amount="@Model.Amount">
+            data-epayco-amount="@Model.Amount"
+            data-epayco-tax="@Model.Tax"
+            data-epayco-tax-base="@Model.TaxBase"
+            data-epayco-response="@Model.ResponseUrl"
+            >
     </script>
 </form>

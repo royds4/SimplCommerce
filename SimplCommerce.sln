@@ -131,6 +131,7 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplCommerce.Module.PaymentMomo", "src\Modules\SimplCommerce.Module.PaymentMomo\SimplCommerce.Module.PaymentMomo.csproj", "{18D536F1-AE38-47FA-95ED-1656882907FC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimplCommerce.Module.PaymentEPayCo", "src\Modules\SimplCommerce.Module.PaymentEPayCo\SimplCommerce.Module.PaymentEPayCo.csproj", "{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MySql", "MySql", "{1A8B6FA0-8341-4D27-9B71-57F70AB37571}"
 	ProjectSection(SolutionItems) = preProject
 		src\Database\MySql\StaticData-GB.sql = src\Database\MySql\StaticData-GB.sql
@@ -724,6 +725,18 @@ Global
 		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Release|x64.Build.0 = Release|Any CPU
 		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Release|x86.ActiveCfg = Release|Any CPU
 		{9B1D300C-4BDB-4BFB-8E95-78FD096896DD}.Release|x86.Build.0 = Release|Any CPU
+		{14586564-62CC-4117-AC1B-858ED53C2D6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14586564-62CC-4117-AC1B-858ED53C2D6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14586564-62CC-4117-AC1B-858ED53C2D6C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{14586564-62CC-4117-AC1B-858ED53C2D6C}.Debug|x64.Build.0 = Debug|Any CPU
+		{14586564-62CC-4117-AC1B-858ED53C2D6C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{14586564-62CC-4117-AC1B-858ED53C2D6C}.Debug|x86.Build.0 = Debug|Any CPU
+		{14586564-62CC-4117-AC1B-858ED53C2D6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14586564-62CC-4117-AC1B-858ED53C2D6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14586564-62CC-4117-AC1B-858ED53C2D6C}.Release|x64.ActiveCfg = Release|Any CPU
+		{14586564-62CC-4117-AC1B-858ED53C2D6C}.Release|x64.Build.0 = Release|Any CPU
+		{14586564-62CC-4117-AC1B-858ED53C2D6C}.Release|x86.ActiveCfg = Release|Any CPU
+		{14586564-62CC-4117-AC1B-858ED53C2D6C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,5 +14,5 @@
   <ItemGroup>
     <PackageReference Update="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
   </ItemGroup>
-
+  
 </Project>

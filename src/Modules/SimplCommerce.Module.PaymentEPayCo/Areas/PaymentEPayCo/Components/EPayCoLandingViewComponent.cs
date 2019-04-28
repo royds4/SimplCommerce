@@ -34,9 +34,13 @@ namespace SimplCommerce.Module.PaymentEPayCo.Areas.PaymentEPayCo.Components
             var curentUser = await _workContext.GetCurrentUser();
             var cart = await _cartService.GetActiveCartDetails(curentUser.Id);
             var zeroDecimalAmount = cart.OrderTotal;
+            var zeroDecimalTax= cart.TaxAmount;
+            var zeroDecimalSubtotal = cart.SubTotalWithDiscountWithoutTax;
             if (!CurrencyHelper.IsZeroDecimalCurrencies())
             {
                 zeroDecimalAmount = zeroDecimalAmount * 100;
+                zeroDecimalTax = zeroDecimalTax * 100;
+                zeroDecimalSubtotal = zeroDecimalSubtotal * 100;
             }
 
             var regionInfo = new RegionInfo(CultureInfo.CurrentCulture.LCID);
@@ -46,7 +50,11 @@ namespace SimplCommerce.Module.PaymentEPayCo.Areas.PaymentEPayCo.Components
             model.Description = cart.OrderNote;
             model.Amount = (long)zeroDecimalAmount;
             model.Currency = regionInfo.ISOCurrencySymbol;
+            model.Country = regionInfo.Name;
+            model.Tax = (long)zeroDecimalTax;
+            model.TaxBase = (long)zeroDecimalSubtotal;
             model.Test = epaycoSetting.Test;
+            model.ResponseUrl = Request.GetFullHostingUrlRoot() + Url.Action("Charge", "EPayCo", new { Area = "PaymentEPayCo" });
 
             return View(this.GetViewPath(), model);
         }
